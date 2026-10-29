@@ -1,0 +1,111 @@
+# V6: one rigid carrier per kit. The three support sections are connected.
+# Metres and radians; calibrate feeder/work poses on the real bench.
+tray:
+  first_part:
+  - -0.53
+  - 0.22
+  - 0.065
+  part_spacing_x: 0.11
+  part_offsets_x:
+  - 0.0
+  - 0.15
+  - 0.25
+  toy_spacing_y: 0.05
+  toy_rise_z: 0.006
+  width_x: 0.34
+  length_y: 0.42
+  row_step: &id001
+  - 0
+  - 0.047717999748522574
+  - 0.02755
+  carrier:
+    dimensions_verified: true
+    size:
+    - 0.173
+    - 0.055
+    - 0.005
+    rim_height: 0.015
+    wall: 0.001
+    first_pose:
+    - -0.442
+    - 0.36019
+    - 0.05635515977
+    - 0.5235987755982988
+    - 0
+    - 0
+    row_step: *id001
+    discard:
+    - -0.98
+    - 0.05
+    - 0.13
+    - 0
+    - 0
+    - 1.5707963267948966
+    grip_clearance_m: 0.00085
+    jaw_opening_rad: 0.06
+    pull_points:
+    - - -0.442
+      - 0.3
+      - 0.14
+    - - -0.5
+      - 0.27
+      - 0.18
+    - - -0.7
+      - 0.2
+      - 0.2
+    mesh: v6/jig.stl
+    # Pull the loaded carrier within arm 2's vertical pickup reach.
+    work_pose:
+    - -0.4
+    - 0.27
+    - 0.0231
+    - 0
+    - 0
+    - 0
+    contact:
+      points:
+      - - 0
+        - -0.02815
+        - 0.015
+      - - 0
+        - -0.02335
+        - 0.015
+      height_range:
+      - -0.002
+      - 0.002
+      slide_axis: 0
+      slide_m: 0.004
+      skew_m: 0.0003
+      attempts: 36
+      normal_alignment: 0.97
+  parts_local:
+    insert_3v4:
+    - -0.0635
+    - 0.00025
+    - 0.01195
+    - 0
+    - 0
+    - -1.5707963267948966
+    pin_2v4:
+    - -0.0195
+    - -0.001
+    - 0.01005
+    - 0
+    - 0
+    - 0
+    base_1v4:
+    - 0.0449438
+    - -0.0005
+    - 0.01225
+    - 0
+    - 0
+    - 3.141592653589793
+work_center:
+- -0.43
+- 0.15
+- 0.1311
+conveyor_center:
+- -0.58
+- -0.21
+- 0.0711
+conveyor_spacing_x: 0.04

@@ -1,0 +1,160 @@
+/assembly_left/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+/assembly_left/joint_state_broadcaster:
+  ros__parameters:
+    use_local_topics: true
+/assembly_left/arm_controller:
+  ros__parameters:
+    joints:
+    - shoulder_pan
+    - shoulder_lift
+    - elbow_flex
+    - wrist_flex
+    - wrist_roll
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+/assembly_left/gripper_controller:
+  ros__parameters:
+    joints:
+    - gripper
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+/assembly_right/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+/assembly_right/joint_state_broadcaster:
+  ros__parameters:
+    use_local_topics: true
+/assembly_right/arm_controller:
+  ros__parameters:
+    joints:
+    - shoulder_pan
+    - shoulder_lift
+    - elbow_flex
+    - wrist_flex
+    - wrist_roll
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+/assembly_right/gripper_controller:
+  ros__parameters:
+    joints:
+    - gripper
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+/inspection/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+/inspection/joint_state_broadcaster:
+  ros__parameters:
+    use_local_topics: true
+/inspection/arm_controller:
+  ros__parameters:
+    joints:
+    - shoulder_pan
+    - shoulder_lift
+    - elbow_flex
+    - wrist_flex
+    - wrist_roll
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+/inspection/gripper_controller:
+  ros__parameters:
+    joints:
+    - gripper
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+/packaging/controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+/packaging/joint_state_broadcaster:
+  ros__parameters:
+    use_local_topics: true
+/packaging/arm_controller:
+  ros__parameters:
+    joints:
+    - shoulder_pan
+    - shoulder_lift
+    - elbow_flex
+    - wrist_flex
+    - wrist_roll
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: false
+/packaging/gripper_controller:
+  ros__parameters:
+    joints:
+    - gripper
+    command_interfaces:
+    - position
+    state_interfaces:
+    - position
+    - velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0

@@ -1,0 +1,5 @@
+# Use the same hardware domain as the laptop's main ID.yaml.
+ros_domain_id: 0
+serial_device: auto
+network:
+  agent_port: 8888

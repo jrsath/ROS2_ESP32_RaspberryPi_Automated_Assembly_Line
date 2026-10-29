@@ -1,0 +1,98 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Fixed Frame: world
+    Background Color: 35; 35; 38
+    Frame Rate: 25
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Floor grid
+    Enabled: true
+    Cell Size: 0.1
+  - Class: rviz_default_plugins/MarkerArray
+    Name: Conveyor rig CAD
+    Enabled: true
+    Topic:
+      Value: /project2/rig_markers
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+  - Class: rviz_default_plugins/RobotModel
+    Name: Assembly left SO101
+    TF Prefix: assembly_left
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /assembly_left/robot_description
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+    Visual Enabled: true
+    Collision Enabled: false
+  - Class: rviz_default_plugins/RobotModel
+    Name: Assembly right SO101
+    TF Prefix: assembly_right
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /assembly_right/robot_description
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+    Visual Enabled: true
+    Collision Enabled: false
+  - Class: rviz_default_plugins/RobotModel
+    Name: Inspection SO101
+    TF Prefix: inspection
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /inspection/robot_description
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+    Visual Enabled: true
+    Collision Enabled: false
+  - Class: rviz_default_plugins/RobotModel
+    Name: Packaging SO101
+    TF Prefix: packaging
+    Enabled: true
+    Description Source: Topic
+    Description Topic:
+      Value: /packaging/robot_description
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+    Visual Enabled: true
+    Collision Enabled: false
+  - Class: rviz_default_plugins/TF
+    Name: TF
+    Enabled: false
+  - Class: rviz_default_plugins/InteractiveMarkers
+    Name: Arm controls
+    Enabled: true
+    Interactive Markers Namespace: /project2/sim/controls
+    Show Axes: false
+    Show Descriptions: true
+    Show Visual Aids: true
+  - Class: rviz_default_plugins/MarkerArray
+    Enabled: true
+    Name: Working parts and open boxes
+    Topic:
+      Value: /project2/working_parts
+      Depth: 5
+    Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 2.4
+      Pitch: 0.55
+      Yaw: 0.8
+      Focal Point:
+        X: 0.05
+        Y: 0.15
+        Z: 1.12
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+Window Geometry:
+  Width: 1280
+  Height: 820

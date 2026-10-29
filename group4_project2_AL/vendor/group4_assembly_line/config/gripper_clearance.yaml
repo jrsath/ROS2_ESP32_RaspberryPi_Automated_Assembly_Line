@@ -1,0 +1,44 @@
+# Conservative boxes used only for inter-arm path checks.
+# Gazebo contact uses the actual gripper meshes.
+gripper_link:
+- xyz:
+  - 0.0
+  - -0.024
+  - 0.0
+  size:
+  - 0.06
+  - 0.045
+  - 0.044
+- xyz:
+  - 0.021
+  - -0.066
+  - 0.0
+  size:
+  - 0.018
+  - 0.031
+  - 0.018
+- xyz:
+  - 0.0147
+  - -0.093
+  - 0.0
+  size:
+  - 0.012
+  - 0.026
+  - 0.014
+moving_jaw_link:
+- xyz:
+  - 0.0
+  - -0.015
+  - 0.0
+  size:
+  - 0.018
+  - 0.03
+  - 0.044
+- xyz:
+  - -0.004
+  - -0.055
+  - 0.0
+  size:
+  - 0.015
+  - 0.052
+  - 0.012

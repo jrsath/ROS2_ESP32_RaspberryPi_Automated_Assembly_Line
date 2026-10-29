@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <model name="box_lower">
+    <link name="box">
+      <inertial>
+        <pose>0 0.01799999923 0 0 0 0</pose>
+        <mass>0.03</mass>
+        <inertia>
+          <ixx>2.849062597900631e-05</ixx>
+          <iyy>3.278565173407497e-05</iyy>
+          <izz>1.0775025197169198e-05</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://project2_rig/meshes/Box_Lower.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.72 0.72 0.70 1</diffuse>
+        </material>
+      </visual>
+    </link>
+    <static>true</static>
+  </model>
+</sdf>

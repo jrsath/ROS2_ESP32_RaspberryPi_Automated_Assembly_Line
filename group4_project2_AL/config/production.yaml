@@ -1,0 +1,426 @@
+# Positions are metres relative to the table top; angles are radians.
+# Capture physical waypoints and check contact before enabling the real arms.
+fixture:
+- -0.43
+- 0.18
+- 0.0321
+- 0
+- 0
+- 0
+handoff:
+- -0.34
+- 0.12
+- 0.031
+- 0
+- 0
+- 0
+handoff_offset:
+- 0.08
+- 0
+- -0.0011
+- 0
+- 0
+- 0
+conveyor_in:
+- -0.25
+- 0.21
+- 0.079
+- 0
+- 0
+- 0
+conveyor_out:
+- 0.24
+- 0.21
+- 0.079
+- 0
+- 0
+- 0
+conveyor_seconds: 4.0
+reject:
+- 0.1
+- 0.18
+- 0.0711
+- 0
+- 0
+- 0
+box_feed:
+- 0.38825
+- 0.353130762
+- 0.066132497
+- 0
+- -0.5235987756
+- 1.5707963268
+lid_feed:
+- 0.49175
+- 0.357569512
+- 0.062344358
+- 0
+- -0.5235987756
+- 1.5707963268
+box_nest:
+- 0.439
+- 0.228
+- 0.0353
+- 0
+- 0
+- 1.5707963268
+box_size:
+- 0.051
+- 0.0966
+- 0.024
+wall: 0.002
+feeder_steps:
+  box:
+  - 0
+  - 0.045033321
+  - 0.026
+  lid:
+  - 0
+  - 0.04841182
+  - 0.02795
+# Finished boxes: back pair, front pair, then one centred above them.
+stack:
+- - 0.688
+  - 0.309
+  - 0.0353
+  - 0
+  - 0
+  - 0
+- - 0.758
+  - 0.309
+  - 0.0353
+  - 0
+  - 0
+  - 3.1415926536
+- - 0.688
+  - 0.189
+  - 0.0353
+  - 0
+  - 0
+  - 0
+- - 0.758
+  - 0.189
+  - 0.0353
+  - 0
+  - 0
+  - 0
+- - 0.723
+  - 0.249
+  - 0.0623
+  - 0
+  - 0
+  - 0
+# Limit joint speed and approach distance during each transfer.
+speed_rad_s: 0.7
+approach_m: 0.025
+feeder_clearance_m: 0.035
+# Calibrate the actual arm-mounted camera before using these viewpoints.
+camera:
+  device: 0
+  roi:
+  - 0.15
+  - 0.15
+  - 0.7
+  - 0.7
+  min_area: 1500
+  match_limit: 0.02
+  view_rpy:
+  - 0.0
+  - 0.0
+  - 0.0
+  stable_frames: 8
+  timeout_s: 8.0
+  allow_no_camera: true
+  mount:
+    tool_to_camera:
+    - -0.035
+    - 0.04
+    - 0.025
+    - 0.0
+    - 0.0
+    - 0.0
+    height_m: 0.14
+  views:
+    top:
+      rpy:
+      - 0.0
+      - 0.0
+      - 0.0
+      match_limit: 0.04
+    end:
+      rpy:
+      - 1.35
+      - 0.0
+      - 0.0
+      match_limit: 0.025
+      distance_m: 0.06
+home:
+- 0
+- -0.8
+- 0
+- 0
+- 0
+- 0.5
+# Fixture pins support the base while arm 1 clears the insertion path.
+support:
+  mode: fixture
+  point:
+  - -0.035
+  - 0.0
+  - 0.0049
+  joints:
+  - -0.6885348038521533
+  - -0.38906311328458754
+  - 0.9771853520161137
+  - -0.004732171049867649
+  - -1.4504202637265937
+  - 0.0
+# Range threshold distinguishes the base wall from the empty belt.
+conveyor_sensor:
+  beam_offset:
+  - 0.037
+  - 0.013
+  - 0.061
+  trigger_range_m: 0.064
+  maximum_range_m: 0.1
+  timeout_s: 12.0
+# Feedback corrections use measured joint angles, not estimated step counts.
+position_hold:
+  joint_tolerance: 0.02
+  tool_tolerance_m: 0.003
+  maximum_joint_error: 0.15
+  maximum_tool_error_m: 0.015
+  correction_interval_s: 1.0
+# Finish each contact move before attaching or seating a part.
+motion_completion:
+  joint_tolerance: 0.003
+  tool_tolerance_m: 0.0005
+# Rejects stay separate on the clear table in front of the packaging side.
+reject_slots:
+- - 0.05
+  - 0.06
+  - 0.0321
+- - 0.32
+  - 0.06
+  - 0.0321
+- - 0.41
+  - 0.06
+  - 0.0321
+- - 0.05
+  - 0.11
+  - 0.0321
+- - 0.14
+  - 0.06
+  - 0.0321
+# Tool contact offsets in each object frame; metres. Lower Z lowers the grip.
+grips:
+  base:
+  - 0.025
+  - 0
+  - 0.0059
+  gear:
+  - 0
+  - 0
+  - 0
+  handoff:
+  - 0
+  - 0
+  - 0
+  insert:
+  - 0
+  - 0
+  - 0
+  belt:
+  - 0.025
+  - 0
+  - 0.0019
+  inspect:
+  - 0.025
+  - 0
+  - 0.0019
+  box:
+  - -0.0196
+  - 0
+  - 0.002
+  lid:
+  - 0
+  - 0
+  - 0.009
+  stack_4:
+  - -0.0196
+  - -0.02
+  - 0.002
+  stack:
+  - -0.0196
+  - -0.035
+  - 0.002
+# Product centre above the inner box floor and lid roof above the box rim.
+packaging_clearance: 0.0005
+# Wide jaws surround the closed package; the handle is not the lifting point.
+grip_orientation:
+  stack:
+  - 1.5707963268
+  - 0
+  - 3.1415926536
+gripper_angles:
+  box:
+    closed: 0.6
+    open: 0.8
+  insert:
+    release: 0.1
+  stack:
+    closed: 0.6
+    open: 0.8
+# Assembly-only test: simulated operator unloads products onto the clear front bench.
+assembly_output:
+- - -0.52
+  - -0.12
+  - 0.0321
+  - 0
+  - 0
+  - 0
+- - -0.42
+  - -0.12
+  - 0.0321
+  - 0
+  - 0
+  - 0
+- - -0.32
+  - -0.12
+  - 0.0321
+  - 0
+  - 0
+  - 0
+- - -0.22
+  - -0.12
+  - 0.0321
+  - 0
+  - 0
+  - 0
+- - -0.12
+  - -0.12
+  - 0.0321
+  - 0
+  - 0
+  - 0
+# Opposing contact points on the actual outside faces, in each mesh frame.
+# The small height/slide range lets the five-axis arm keep both fingers in contact.
+contacts:
+  base:
+    points:
+    - - 0.025
+      - 0.014
+      - -0.002
+    - - 0.025
+      - -0.014
+      - -0.002
+    height_range:
+    - -0.004
+    - 0.004
+    slide_axis: 0
+    slide_m: 0.02
+  support:
+    points:
+    - - -0.012
+      - 0.014
+      - 0.002
+    - - -0.012
+      - -0.014
+      - 0.002
+    height_range:
+    - -0.001
+    - 0.001
+    slide_axis: 0
+    slide_m: 0.003
+    skew_m: 0.001
+  belt: &id001
+    points:
+    - - 0.025
+      - 0.014
+      - 0.002
+    - - 0.025
+      - -0.014
+      - 0.002
+    height_range:
+    - -0.002
+    - 0.002
+    slide_axis: 0
+    slide_m: 0.02
+  inspect: *id001
+  gear:
+    skew_m: 1.0e-05
+    round: true
+    points:
+    - - 0
+      - 0.0135
+      - 0.0048
+    - - 0
+      - -0.0135
+      - 0.0048
+    height_range:
+    - -0.0001
+    - 0.0001
+    slide_axis: 0
+    slide_m: 0.001
+  handoff: &id002
+    points:
+    - - -0.011
+      - 0.0125
+      - 0.0055
+    - - -0.011
+      - -0.0125
+      - 0.0055
+    height_range:
+    - -0.001
+    - 0.001
+    slide_axis: 0
+    slide_m: 0.001
+    skew_m: 0.001
+  insert: *id002
+  box:
+    points:
+    - - -0.0255
+      - 0
+      - 0.0075
+    - - 0.0255
+      - 0
+      - 0.0075
+    height_range:
+    - -0.0035
+    - 0.0035
+    skew_m: 0.04
+    slide_axis: 1
+    slide_m: 0.0005
+  stack:
+    closed_box: true
+    points:
+    - - 0.0255
+      - 0
+      - 0
+    - - -0.0255
+      - 0
+      - 0
+    height_range:
+    - -0.011
+    - 0.011
+    skew_m: 0.035
+    slide_axis: 1
+    slide_m: 0.0005
+  lid:
+    points:
+    - - -0.002
+      - 0
+      - 0.009
+    - - 0.002
+      - 0
+      - 0.009
+    height_range:
+    - -0.001
+    - 0.001
+    slide_axis: 1
+    slide_m: 0.005
+
+# Supplied fixed bench jig; offsets preserve the V6 base seating datum.
+assembly_jig:
+  mesh: v6/assembly_jig.stl
+  relative_to_base: [-0.0015562, 0.0, -0.0064444275, 0.0, 0.0, 0.0]

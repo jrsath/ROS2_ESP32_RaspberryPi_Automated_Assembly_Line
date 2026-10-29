@@ -1,0 +1,124 @@
+{
+  "Panels": [
+    {
+      "Class": "rviz_common/Displays",
+      "Name": "Displays"
+    },
+    {
+      "Class": "rviz_common/Tool Properties",
+      "Name": "Tool Properties"
+    }
+  ],
+  "Visualization Manager": {
+    "Class": "",
+    "Global Options": {
+      "Fixed Frame": "world",
+      "Background Color": "35; 39; 45"
+    },
+    "Displays": [
+      {
+        "Class": "rviz_default_plugins/Grid",
+        "Name": "Grid",
+        "Enabled": true,
+        "Cell Size": 0.1
+      },
+      {
+        "Class": "rviz_default_plugins/RobotModel",
+        "Name": "Arm 1",
+        "Enabled": true,
+        "Description Source": "Topic",
+        "Description Topic": {
+          "Value": "/project2/sim/arm1/robot_description",
+          "Reliability Policy": "Reliable",
+          "Durability Policy": "Transient Local"
+        },
+        "Visual Enabled": true,
+        "Collision Enabled": false
+      },
+      {
+        "Class": "rviz_default_plugins/RobotModel",
+        "Name": "Arm 2",
+        "Enabled": true,
+        "Description Source": "Topic",
+        "Description Topic": {
+          "Value": "/project2/sim/arm2/robot_description",
+          "Reliability Policy": "Reliable",
+          "Durability Policy": "Transient Local"
+        },
+        "Visual Enabled": true,
+        "Collision Enabled": false
+      },
+      {
+        "Class": "rviz_default_plugins/RobotModel",
+        "Name": "Arm 3",
+        "Enabled": true,
+        "Description Source": "Topic",
+        "Description Topic": {
+          "Value": "/project2/sim/arm3/robot_description",
+          "Reliability Policy": "Reliable",
+          "Durability Policy": "Transient Local"
+        },
+        "Visual Enabled": true,
+        "Collision Enabled": false
+      },
+      {
+        "Class": "rviz_default_plugins/RobotModel",
+        "Name": "Arm 4",
+        "Enabled": true,
+        "Description Source": "Topic",
+        "Description Topic": {
+          "Value": "/project2/sim/arm4/robot_description",
+          "Reliability Policy": "Reliable",
+          "Durability Policy": "Transient Local"
+        },
+        "Visual Enabled": true,
+        "Collision Enabled": false
+      },
+      {
+        "Class": "rviz_default_plugins/InteractiveMarkers",
+        "Name": "Drag controls",
+        "Enabled": true,
+        "Update Topic": "/project2/sim/controls/update",
+        "Show Axes": false,
+        "Show Descriptions": false
+      },
+      {
+        "Class": "rviz_default_plugins/MarkerArray",
+        "Name": "Cell",
+        "Enabled": true,
+        "Marker Topic": {
+          "Value": "/project2/sim/scene",
+          "Reliability Policy": "Reliable"
+        }
+      }
+    ],
+    "Tools": [
+      {
+        "Class": "rviz_default_plugins/Interact"
+      },
+      {
+        "Class": "rviz_default_plugins/MoveCamera"
+      },
+      {
+        "Class": "rviz_default_plugins/Select"
+      }
+    ],
+    "Views": {
+      "Current": {
+        "Class": "rviz_default_plugins/Orbit",
+        "Distance": 1.8,
+        "Pitch": 0.7,
+        "Yaw": 0.8,
+        "Focal Point": {
+          "X": 0,
+          "Y": 0,
+          "Z": 0.12
+        }
+      }
+    }
+  },
+  "Window Geometry": {
+    "Width": 1400,
+    "Height": 950
+  }
+}

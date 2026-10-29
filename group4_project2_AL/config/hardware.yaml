@@ -1,0 +1,45 @@
+# Supplied connector pinouts and SO101 ROS definitions are still pending.
+# This is an integration checklist, not a runnable motion configuration.
+hardware_enabled: false
+microcontroller:
+  board: ESP32 Dev Module
+  transport: serial
+  baud: 115200
+  device: null
+  firmware: project2_io
+  gpio_mapping_verified: false
+robots:
+  assembly_left: {namespace: null, command_topic: null, state_topic: null, message_type: null}
+  assembly_right: {namespace: null, command_topic: null, state_topic: null, message_type: null}
+  inspection: {namespace: null, command_topic: null, state_topic: null, message_type: null}
+  packaging: {namespace: null, command_topic: null, state_topic: null, message_type: null}
+camera:
+  image_topic: null
+  camera_info_topic: null
+  calibration_file: null
+conveyor:
+  step_gpio: null
+  direction_gpio: null
+  enable_gpio: null
+  sensor_gpio: null
+  pulses_per_mm: null
+  maximum_hz: null
+  driver_polarities_verified: false
+control_box:
+  green_gpio: null
+  red_gpio: null
+  selector_gpio: null
+  estop_feedback_gpio: null
+  # Physical NC E-stop must cut actuator power independently of software.
+  hardware_estop_power_cut_verified: false
+tower:
+  red_gpio: null
+  yellow_gpio: null
+  green_gpio: null
+  alarm_gpio: null
+  interface_3v3_to_5v_verified: false
+frames:
+  rig_dimensions_m: [1.2, 0.6]
+  robot_base_transforms_measured: false
+  conveyor_inspection_pose: null
+  packaging_wait_pose: null

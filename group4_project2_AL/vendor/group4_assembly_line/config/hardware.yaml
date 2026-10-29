@@ -1,0 +1,108 @@
+# Project 2 hardware and simulation mapping.
+# Real-arm topic names are configurable because the lab remap must be verified on the robot network.
+simulation:
+  joint_offsets:
+    shoulder_pan: 0.0
+    shoulder_lift: -0.45
+    elbow_flex: 0.7
+    wrist_flex: 0.45
+    wrist_roll: 0.0
+    gripper: 0.7
+  joint_signs:
+    shoulder_pan: 1.0
+    shoulder_lift: 1.0
+    elbow_flex: 1.0
+    wrist_flex: 1.0
+    wrist_roll: 1.0
+    gripper: 1.0
+robots:
+  assembly_left:
+    namespace: /assembly_left
+    command_type: joint_state
+    action_name: /assembly_left/arm_controller/follow_joint_trajectory
+    gripper_action_name: /assembly_left/gripper_controller/follow_joint_trajectory
+    separate_gripper_action: true
+    command_topic: /assembly_left/joint_commands
+    state_topic: /assembly_left/joint_states
+    state_type: joint_state
+    command_units: radians
+    state_units: radians
+    command_rate_hz: 25
+    joint_name_map:
+      shoulder_pan: shoulder_pan
+      shoulder_lift: shoulder_lift
+      elbow_flex: elbow_flex
+      wrist_flex: wrist_flex
+      wrist_roll: wrist_roll
+      gripper: gripper
+  assembly_right:
+    namespace: /assembly_right
+    command_type: joint_state
+    action_name: /assembly_right/arm_controller/follow_joint_trajectory
+    gripper_action_name: /assembly_right/gripper_controller/follow_joint_trajectory
+    separate_gripper_action: true
+    command_topic: /assembly_right/joint_commands
+    state_topic: /assembly_right/joint_states
+    state_type: joint_state
+    command_units: radians
+    state_units: radians
+    command_rate_hz: 25
+    joint_name_map:
+      shoulder_pan: shoulder_pan
+      shoulder_lift: shoulder_lift
+      elbow_flex: elbow_flex
+      wrist_flex: wrist_flex
+      wrist_roll: wrist_roll
+      gripper: gripper
+  inspection:
+    namespace: /inspection
+    command_type: joint_state
+    action_name: /inspection/arm_controller/follow_joint_trajectory
+    gripper_action_name: /inspection/gripper_controller/follow_joint_trajectory
+    separate_gripper_action: true
+    command_topic: /inspection/joint_commands
+    state_topic: /inspection/joint_states
+    state_type: joint_state
+    command_units: radians
+    state_units: radians
+    command_rate_hz: 25
+    joint_name_map:
+      shoulder_pan: shoulder_pan
+      shoulder_lift: shoulder_lift
+      elbow_flex: elbow_flex
+      wrist_flex: wrist_flex
+      wrist_roll: wrist_roll
+      gripper: gripper
+  packaging:
+    namespace: /packaging
+    command_type: joint_state
+    action_name: /packaging/arm_controller/follow_joint_trajectory
+    gripper_action_name: /packaging/gripper_controller/follow_joint_trajectory
+    separate_gripper_action: true
+    command_topic: /packaging/joint_commands
+    state_topic: /packaging/joint_states
+    state_type: joint_state
+    command_units: radians
+    state_units: radians
+    command_rate_hz: 25
+    joint_name_map:
+      shoulder_pan: shoulder_pan
+      shoulder_lift: shoulder_lift
+      elbow_flex: elbow_flex
+      wrist_flex: wrist_flex
+      wrist_roll: wrist_roll
+      gripper: gripper
+conveyor:
+  step_frequency_hz: 1200
+  direction: 0
+  sensor_timeout_s: 10.0
+microcontroller:
+  command_topic: /project2/io/command
+  state_topic: /project2/io/state
+  feedback_timeout_s: 0.75
+selector:
+  modes:
+    0: full
+    1: assembly
+    2: inspection
+    3: packaging

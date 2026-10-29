@@ -1,0 +1,62 @@
+# Simulation stays separate from older projects and lab drivers.
+simulation_ros_domain_id: 42
+# Copy to ID.yaml and enter this computer and rig settings.
+ros_domain_id: 0
+network:
+  ssid: YOUR_WIFI_NAME
+  password: ''
+  agent_ip: 192.168.1.100
+  esp_ip: 192.168.1.101
+  agent_port: 8888
+  simulation_agent_ip: 127.0.0.1
+  simulation_agent_port: 8889
+transport: serial
+# Panel choice: usb_lab or wifi_laptop. Firmware transport is set separately.
+panel_environment: usb_lab
+# Auto selects only when exactly one serial device exists; otherwise use /dev/serial/by-id/...
+serial_device: auto
+camera:
+  device: 0
+  source: usb
+  url: ''
+  topic: /camera/image_raw
+  stale_seconds: 1.0
+io:
+  verified: false
+  buttons_active_low: false
+  green_button: 4
+  red_button: 2
+  selector_active_low: false
+  proximity_active_low: true
+  selector_a: 16
+  selector_b: -1
+  estop_feedback: -1
+  proximity: 35
+  step: 18
+  direction: 19
+  enable: 21
+  tower_green: 26
+  tower_yellow: 25
+  tower_red: 33
+  alarm: 32
+  max_step_hz: 0
+hardware:
+  verified: false
+  joint_units: radians
+  arms:
+    assembly_left:
+      state_topic: ''
+      arm_command_topic: ''
+      gripper_command_topic: ''
+    assembly_right:
+      state_topic: ''
+      arm_command_topic: ''
+      gripper_command_topic: ''
+    inspection:
+      state_topic: ''
+      arm_command_topic: ''
+      gripper_command_topic: ''
+    packaging:
+      state_topic: ''
+      arm_command_topic: ''
+      gripper_command_topic: ''

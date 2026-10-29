@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+results/
+datasets/
+transport_secrets.h
+
+# Local settings and generated Arduino headers.
+ID.yaml
+firmware/project2_io/io_config.h
+firmware/project2_io/transport_config.h
+
+.project2_workspace
+.project2/

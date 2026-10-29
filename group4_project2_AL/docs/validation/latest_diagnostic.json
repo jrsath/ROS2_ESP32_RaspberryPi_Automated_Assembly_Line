@@ -1,0 +1,49 @@
+{
+  "mode": "full",
+  "products": 5,
+  "faults": 0,
+  "passed": true,
+  "completed_cycle": false,
+  "scope": "Start/Pause and blocked-task hold",
+  "seconds": 97.8,
+  "cell": {
+    "state": "RUNNING",
+    "mode": "full",
+    "step": "assembly: move | conveyor: wait | packaging: move",
+    "step_label": "assembly: load_carrier: pickup | conveyor: wait | packaging: box: placement",
+    "cycle": 1,
+    "cycles": 5,
+    "setup_done": true,
+    "plan_error": null,
+    "unavailable_paths": {
+      "stack_0": "stack_0: packaging: grip clearance failed (contact 3.09mm, placement 6.29mm, lid intrusion 5.31mm); adjust the contact/fixture waypoints",
+      "stack_1": "stack_0: packaging: grip clearance failed (contact 3.09mm, placement 6.29mm, lid intrusion 5.31mm); adjust the contact/fixture waypoints",
+      "stack_2": "stack_0: packaging: grip clearance failed (contact 3.09mm, placement 6.29mm, lid intrusion 5.31mm); adjust the contact/fixture waypoints",
+      "stack_3": "stack_0: packaging: grip clearance failed (contact 3.09mm, placement 6.29mm, lid intrusion 5.31mm); adjust the contact/fixture waypoints",
+      "stack_4": "stack_0: packaging: grip clearance failed (contact 3.09mm, placement 6.29mm, lid intrusion 5.31mm); adjust the contact/fixture waypoints"
+    },
+    "blocked_tasks": {
+      "assembly": "load_carrier: pickup: assembly_left did not reach target [-0.399, 1.138, -0.141, -0.595, -0.381, -0.085]; measured [-0.399, 1.087, -0.141, -0.595, -0.381, -0.085]"
+    },
+    "paths_ready": true,
+    "planning_task": "stack_0",
+    "start_pending": false,
+    "requested_mode": "full",
+    "requested_count": 5,
+    "fault_schedule": {},
+    "selector_revision": 0,
+    "qa_trial": false,
+    "io_connected": true,
+    "path_file": "/home/jrsat/ROS2/group4_ws/src/group4_project2_AL/config/production.yaml",
+    "completed": 0,
+    "packed": 0,
+    "rejected": 0,
+    "reason": "assembly waiting: load_carrier: pickup: assembly_left did not reach target [-0.399, 1.138, -0.141, -0.595, -0.381, -0.085]; measured [-0.399, 1.087, -0.141, -0.595, -0.381, -0.085]. Edit the path, then Reset.",
+    "conveyor_running": false,
+    "tower": "yellow",
+    "alarm": false,
+    "inspection_bypassed": 0,
+    "outcomes": {},
+    "conveyor_sensor": false
+  }
+}

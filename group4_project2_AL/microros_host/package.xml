@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>project2_virtual_board</name><version>0.1.0</version>
+  <description>Desktop micro-ROS control board for the Project 2 simulator.</description>
+  <maintainer email="group4@example.com">Group 4</maintainer><license>MIT</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>rclc</depend><depend>rmw_microxrcedds</depend><depend>std_msgs</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>
+

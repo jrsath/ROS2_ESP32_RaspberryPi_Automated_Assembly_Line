@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="so101_project2_cad">
+  <xacro:arg name="robot_namespace" default="/so101"/>
+  <xacro:arg name="prefix" default="so101/"/>
+  <xacro:arg name="controllers_file" default="$(find group4_assembly_line)/config/so101_controllers.yaml"/>
+  <xacro:arg name="mesh_root" default="$(find group4_assembly_line)/models/project2_rig/meshes"/>
+  <material name="yellow"><color rgba="0.95 0.72 0.08 1"/></material>
+  <material name="black"><color rgba="0.08 0.08 0.08 1"/></material>
+  <material name="dark"><color rgba="0.18 0.18 0.20 1"/></material>
+  <link name="base_link">
+    <inertial><origin xyz="0 -0.02305000089 0.04174822196"/><mass value="0.147"/><inertia ixx="0.0001980637170552798" ixy="0" ixz="0" iyy="0.00023613113453868756" iyz="0" izz="0.0002633892759556497"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Base.stl"/></geometry><material name="dark"/></visual>
+    <collision><origin xyz="0 -0.02305000089 0.04174822196"/><geometry><box size="0.1109249964 0.09590000287 0.08349644393"/></geometry></collision>
+  </link>
+  <link name="shoulder_link">
+    <inertial><origin xyz="-9.999983013e-05 0.05634999643 0.01939999964"/><mass value="0.13"/><inertia ixx="0.00018032222398818882" ixy="0" ixz="0" iyy="7.247066641987363e-05" iyz="0" izz="0.00016734302512824088"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Shoulder_Rotation_Pitch.stl"/></geometry><material name="yellow"/></visual>
+    <collision><origin xyz="-9.999983013e-05 0.05634999643 0.01939999964"/><geometry><box size="0.05240000039 0.112699993 0.06279999949"/></geometry></collision>
+  </link>
+  <link name="upper_arm_link">
+    <inertial><origin xyz="-9.999796748e-05 0.05912873289 0.01309999917"/><mass value="0.12"/><inertia ixx="0.00022707470914800528" ixy="0" ixz="0" iyy="7.420039895406964e-05" iyz="0" izz="0.0002508743110284007"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Upper_Arm.stl"/></geometry><material name="yellow"/></visual>
+    <collision><origin xyz="-9.999796748e-05 0.05912873289 0.01309999917"/><geometry><box size="0.0700000003 0.1420824798 0.05019999854"/></geometry></collision>
+  </link>
+  <link name="lower_arm_link">
+    <inertial><origin xyz="-0.004499998875 0.003449996468 0.0665499079"/><mass value="0.104"/><inertia ixx="0.00022569702070285007" ixy="0" ixz="0" iyy="0.00024635687927572" iyz="0" izz="4.426109820879402e-05"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Lower_Arm.stl"/></geometry><material name="yellow"/></visual>
+    <collision><origin xyz="-0.004499998875 0.003449996468 0.0665499079"/><geometry><box size="0.06119999848 0.03689999972 0.1570998216"/></geometry></collision>
+  </link>
+  <link name="wrist_link">
+    <inertial><origin xyz="-0.00356235262 -0.02530000173 9.313225746e-09"/><mass value="0.079"/><inertia ixx="4.337865344866657e-05" ixy="0" ixz="0" iyy="3.309944116124643e-05" iyz="0" izz="6.299542352328341e-05"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Wrist_Pitch_Roll.stl"/></geometry><material name="black"/></visual>
+    <collision><origin xyz="-0.00356235262 -0.02530000173 9.313225746e-09"/><geometry><box size="0.06327529438 0.07460001484 0.03200000525"/></geometry></collision>
+  </link>
+  <link name="gripper_link">
+    <inertial><origin xyz="0.002399999648 -0.05318749728 1.862645149e-09"/><mass value="0.087"/><inertia ixx="9.874240227025057e-05" ixy="0" ixz="0" iyy="4.790335541094816e-05" iyz="0" izz="0.00011323776747161855"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Fixed_Gripper.stl"/></geometry><material name="black"/></visual>
+    <collision><geometry><mesh filename="file://$(arg mesh_root)/Fixed_Gripper.stl"/></geometry></collision>
+  </link>
+  <link name="moving_jaw_link">
+    <inertial><origin xyz="-0.001150000375 -0.03602245869 9.999983013e-05"/><mass value="0.012"/><inertia ixx="1.0759738092386799e-05" ixy="0" ixz="0" iyy="2.8012899704715636e-06" iyz="0" izz="8.953027982749717e-06"/></inertial>
+    <visual><geometry><mesh filename="file://$(arg mesh_root)/Moving_Jaw.stl"/></geometry><material name="yellow"/></visual>
+    <collision><geometry><mesh filename="file://$(arg mesh_root)/Moving_Jaw.stl"/></geometry></collision>
+  </link>
+  <link name="world"/>
+  <joint name="world_to_base" type="fixed"><parent link="world"/><child link="base_link"/><origin xyz="0 0 0" rpy="0 0 0"/></joint>
+  <joint name="shoulder_pan" type="revolute">
+    <parent link="base_link"/><child link="shoulder_link"/>
+    <origin xyz="0 -0.04520000145 0.01649999991" rpy="1.570796327 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="10" velocity="3.0" lower="-1.91986" upper="1.91986"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <joint name="shoulder_lift" type="revolute">
+    <parent link="shoulder_link"/><child link="upper_arm_link"/>
+    <origin xyz="0 0.1024999991 0.0306000011" rpy="-0.9599310886 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="3.0" lower="-1.29533" upper="2.19533"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <joint name="elbow_flex" type="revolute">
+    <parent link="upper_arm_link"/><child link="lower_arm_link"/>
+    <origin xyz="0 0.1125699729 0.027999999" rpy="-0.5235987756 0 3.141592654"/>
+    <axis xyz="-1 0 0"/>
+    <limit effort="10" velocity="3.0" lower="-2.39" upper="0.99"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <joint name="wrist_flex" type="revolute">
+    <parent link="lower_arm_link"/><child link="wrist_link"/>
+    <origin xyz="0 0.005199996289 0.13489981" rpy="-0.7853981634 0 3.141592654"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="10" velocity="3.0" lower="-2.10806" upper="1.20806"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <joint name="wrist_roll" type="revolute">
+    <parent link="wrist_link"/><child link="gripper_link"/>
+    <origin xyz="0 -0.06009999977 0" rpy="0 1.570796327 0"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="10" velocity="3.0" lower="-2.74385" upper="2.84121"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <joint name="gripper" type="revolute">
+    <parent link="gripper_link"/><child link="moving_jaw_link"/>
+    <origin xyz="-0.02020000108 -0.02440000325 0" rpy="3.141592654 0 3.141592654"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="10" velocity="3.0" lower="-0.874533" upper="1.04533"/><dynamics damping="0.005" friction="0.0"/>
+  </joint>
+  <link name="gripper_frame_link"/>
+  <joint name="gripper_frame_joint" type="fixed"><parent link="gripper_link"/><child link="gripper_frame_link"/><origin xyz="0 -0.10 0" rpy="0 0 0"/></joint>
+  <ros2_control name="SO101GazeboSystem" type="system"><hardware><plugin>gz_ros2_control/GazeboSimSystem</plugin></hardware>
+    <joint name="shoulder_pan"><command_interface name="position"><param name="min">-1.91986</param><param name="max">1.91986</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+    <joint name="shoulder_lift"><command_interface name="position"><param name="min">-1.29533</param><param name="max">2.19533</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+    <joint name="elbow_flex"><command_interface name="position"><param name="min">-2.39</param><param name="max">0.99</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+    <joint name="wrist_flex"><command_interface name="position"><param name="min">-2.10806</param><param name="max">1.20806</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+    <joint name="wrist_roll"><command_interface name="position"><param name="min">-2.74385</param><param name="max">2.84121</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+    <joint name="gripper"><command_interface name="position"><param name="min">-0.874533</param><param name="max">1.04533</param></command_interface><state_interface name="position"><param name="initial_value">0.0</param></state_interface><state_interface name="velocity"/><state_interface name="effort"/></joint>
+  </ros2_control>
+  <gazebo><plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin"><robot_param>robot_description</robot_param><robot_param_node>robot_state_publisher</robot_param_node><parameters>$(arg controllers_file)</parameters><controller_manager_name>controller_manager</controller_manager_name><ros><namespace>$(arg robot_namespace)</namespace></ros></plugin></gazebo>
+</robot>

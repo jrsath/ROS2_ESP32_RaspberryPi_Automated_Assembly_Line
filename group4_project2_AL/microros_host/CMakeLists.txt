@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.8)
+project(project2_virtual_board C)
+find_package(ament_cmake REQUIRED)
+find_package(rclc REQUIRED)
+find_package(rmw_microxrcedds REQUIRED)
+find_package(std_msgs REQUIRED)
+add_executable(virtual_board main.c)
+ament_target_dependencies(virtual_board rclc rmw_microxrcedds std_msgs)
+install(TARGETS virtual_board DESTINATION lib/${PROJECT_NAME})
+ament_package()
+

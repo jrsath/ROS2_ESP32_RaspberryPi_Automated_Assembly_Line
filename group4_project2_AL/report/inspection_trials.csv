@@ -1,0 +1,7 @@
+sample,actual_condition,prediction,removed_correctly,camera_bypassed,image_file,notes
+1,good,,,,,
+2,good,,,,,
+3,good,,,,,
+4,good,,,,,
+5,missing_gear,,,,,
+6,unseated_insert,,,,,

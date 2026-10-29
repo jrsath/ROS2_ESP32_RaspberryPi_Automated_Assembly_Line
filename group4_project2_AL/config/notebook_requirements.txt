@@ -1,0 +1,5 @@
+# Optional interactive notebook extras; not needed for the prepared IK script.
+ipywidgets<9
+ipympl<1
+jupyterlab<5
+pyserial<4

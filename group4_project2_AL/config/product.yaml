@@ -1,0 +1,19 @@
+name: Three-part fidget toy V5
+parts: [1V4, 2V4, 3V4]
+sequence:
+  - step: assembly_task_1
+    operation: Align 2V4 gear over the top pin of 1V4
+    category: oriented_pick_and_place
+  - step: assembly_task_2
+    operation: Seat 2V4 on the top pin while the second arm holds 1V4
+    category: precision_insertion
+  - step: assembly_task_3
+    operation: Push 3V4 into the open side of 1V4
+    category: self_clamping
+assembly_order_confirmed: true
+contact_poses_calibrated: false
+insertion_force_verified: false
+defects_confirmed: true
+defects:
+  flaw_1: 2V4 missing from the top pin
+  flaw_2: 3V4 not fully seated in 1V4

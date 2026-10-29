@@ -1,0 +1,173 @@
+# Demo poses: replace with measured task poses before contact assembly.
+# Add approach/work/retreat entries in execution order. Joint angles are radians.
+units: radians
+space: reference_urdf
+verified_for_hardware: false
+joint_names:
+- shoulder_pan
+- shoulder_lift
+- elbow_flex
+- wrist_flex
+- wrist_roll
+- gripper
+steps:
+  pickup_components:
+    description: Pick 1V4 and 3V4
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.55, -0.6, 0.9, 0.35, 0.0, 1.0]
+        assembly_right: [-0.55, -0.6, 0.9, 0.35, 0.0, 1.0]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  assembly_task_1:
+    description: 'Orient 3V4: short side up and facing into 1V4'
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.1, -0.1, 0.8, 0.5, 0.0, 0.15]
+        assembly_right: [-0.1, -0.1, 0.8, 0.5, 0.0, 0.15]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  assembly_task_2:
+    description: Push 3V4 into 1V4 until the clip seats
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [-0.2, 0.1, 0.5, 0.65, 0.45, 0.15]
+        assembly_right: [0.2, 0.1, 0.5, 0.65, 0.45, 0.15]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  assembly_task_3:
+    description: Place 2V4 onto the top pin of 1V4
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.1, 0.2, 0.4, 0.4, -0.45, 0.15]
+        assembly_right: [-0.1, 0.2, 0.4, 0.4, -0.45, 0.15]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  place_on_conveyor:
+    description: place on conveyor
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [-0.45, -0.3, 0.9, 0.7, 0.0, 1.0]
+        assembly_right: [0.45, -0.3, 0.9, 0.7, 0.0, 1.0]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  transfer_to_inspection:
+    description: transfer to inspection
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [-0.25, -0.2, 0.9, 0.4, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  inspect:
+    description: inspect
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [-0.25, -0.2, 0.9, 0.4, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  transfer_to_packaging:
+    description: transfer to packaging
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  reject_product:
+    description: reject product
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.65, -0.2, 0.9, 0.4, 0.0, 0.5]
+        packaging: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+  pickup_box:
+    description: pickup box
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [-0.55, -0.25, 0.7, 0.35, 0.0, 0.15]
+  pickup_assembly:
+    description: pickup assembly
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.1, -0.25, 0.7, 0.43, 0.0, 0.9]
+  place_in_box:
+    description: place in box
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.25, -0.25, 0.7, 0.51, 0.0, 0.15]
+  pickup_lid:
+    description: pickup lid
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [-0.7, -0.25, 0.7, 0.35, 0.0, 0.9]
+  place_lid:
+    description: place lid
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.25, -0.25, 0.7, 0.43, 0.0, 0.15]
+  pickup_package:
+    description: pickup package
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.25, -0.25, 0.7, 0.51, 0.0, 0.9]
+  stack_package:
+    description: stack package
+    waypoints:
+    - label: work
+      dwell_s: 0.0
+      arms:
+        assembly_left: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        assembly_right: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        inspection: [0.0, -0.35, 0.65, 0.25, 0.0, 0.5]
+        packaging: [0.7, -0.25, 0.7, 0.35, 0.0, 0.15]
