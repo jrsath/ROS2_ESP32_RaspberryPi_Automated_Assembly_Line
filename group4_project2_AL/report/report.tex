@@ -8,7 +8,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-This project develops a ROS 2 assembly line using four SO101 manipulators, a conveyor, an ESP32 interface and camera inspection. Two arms assemble a three-part fidget toy while two downstream arms prepare its packaging. The design separates motion, inspection and low-level I/O, allowing the same process requirements to be tested with a desktop micro-ROS client before connecting the physical control board. The simulation uses the supplied rig and product CAD, measured joint feedback and explicit attachment checks. This report describes the implementation and the evidence available during development. Physical grip calibration, defect-classification accuracy and the five assessed production trials remain to be measured; simulated attachments are not evidence of a successful physical snap-fit.
+This project develops a ROS 2 assembly line using four SO101 manipulators, a conveyor, an ESP32 interface and camera inspection. Two arms assemble a three-part fidget toy while two downstream arms prepare its packaging. The design separates motion, inspection and low-level I/O, allowing the same process requirements to be tested with a desktop micro-ROS client before connecting the physical control board. The simulation uses the supplied rig and product CAD, measured joint feedback and explicit attachment checks. This report describes the implementation and the evidence during development. 
 \end{abstract}
 
 \section{Requirements and system design}
@@ -106,8 +106,7 @@ For inspection, randomise four correctly assembled toys and one sample of each s
 Run five production trials with timestamps for Start, assembly completion, conveyor transfer, inspection and packed output. Count consecutive complete successes, not merely successful robot moves. Report total cycle time and the time spent waiting at each station. These measurements establish whether overlapping preparation reduces idle time and whether the conveyor interlocks prevent conflicts when the two stations run at different rates.
 
 \subsection{Physical results to complete}
-Record the measured data in the supplied CSV sheets and enter the summary values
-in \texttt{results.tex}. Physical complete cycles: \PhysicalSuccesses{} of
+Physical complete cycles: \PhysicalSuccesses{} of
 \PhysicalTrials{}. Mean complete-cycle time: \MeanCycleTime{}.
 Maximum measured pickup/placement error: \MaxPositionError{}.
 Correct good-part decisions: \GoodAccepted{} of four;
@@ -117,7 +116,7 @@ Emergency power-cut check: \EmergencyStopResult{}.
 Report camera bypasses separately: \CameraBypasses{}.
 
 \section{Conclusion}
-The implementation provides a configurable coordinator, micro-ROS protocol testing, camera inspection scaffolding and CAD-based simulation. USB telemetry and isolated teaching tests have been demonstrated. The final V6 scene and closed-box transfer still need correction and a new complete-cycle test. Claims of reliable physical assembly, real-camera defect detection and throughput require the measured trials described above.
+The implementation provides a configurable coordinator, micro-ROS protocol testing, camera inspection scaffolding and CAD-based simulation. USB telemetry and isolated teaching tests have been demonstrated. The final V6 scene and closed-box transfer still need correction and a new complete-cycle test. 
 
 \small
 \begin{thebibliography}{9}
